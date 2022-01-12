@@ -83,14 +83,37 @@ and Sobel operator) were combined with the gradients of τ ,
 β, ζ.
 <img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/pb_lite_output/10.png" width="300" height="300"> 
 
+# How to run the code
+# File structure
+    .
+    ├── Code
+    |  ├── Wrapper.py
+    ├── Data
+    |  ├── BSDS500
+    ├── Results
+    |  ├── Filters
+    |  ├── Testron_map
+    |  ├── Brightness_map
+    |  ├── Color_map
+    |  ├── T_g
+    |  ├── B_g
+    |  ├── C_g
+    |  ├── pb_lite_output
+    
 
-Phase 1:
-the variable 'folder_name' holds the base path to the code folder.
+# How to run the code
+- Change the location to      
+```
+{root_directory}/Phase1 ```  
 
+- Run the following command       
+```
+python3 Code/Wrapper.py ```
+<!-- 
 Phase 2:
 1)train.py
 following are the parameters that need to updated before running the code:
 BasePath, CheckPointPath, NumEpochs, DivTrain, MiniBatchSize, LoadCheckPoint, LogsPath, Plotpath
 2)test.py
 following are the parameters that need to updated before running the code:
-ModelPath, BasePath, TxtPath, Plotpath
+ModelPath, BasePath, TxtPath, Plotpath -->
