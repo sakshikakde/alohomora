@@ -1,4 +1,5 @@
 # Alohomora
+# Phase 1
 My homework 0 submission for the course ![CMSC733 Computer Processing of Pictorial Information](https://cmsc733.github.io/2021/hw/hw0/).
 In this repository, a simple of version of PB boundary detection
 algorithm has been implemented. The classical approaches
@@ -107,6 +108,12 @@ and Sobel operator) were combined with the gradients of τ ,
 
 - Run the following command       
 ```python3 Code/Wrapper.py ```
+
+# Phase 2
+In this section, a basic neural network and its modified
+version for classification on CIFAR10 dataset have been de-
+scribed. Later, a case study for ResNet, ResNext and DenseNet
+architecture was conducted. Refer ![report](https://github.com/sakshikakde/alohomora/blob/main/Report.pdf) for more details. 
 <!-- 
 Phase 2:
 1)train.py
