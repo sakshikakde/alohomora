@@ -86,7 +86,7 @@ and Sobel operator) were combined with the gradients of τ ,
 
 <img src="https://github.com/sakshikakde/probability-based-edge-detection/blob/main/Phase1/results/pb_lite_output/10.png" width="300" height="300"> 
 
-# How to run the code
+# Running the code
 # File structure
     .
     ├── Code
