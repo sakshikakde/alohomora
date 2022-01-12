@@ -7,7 +7,7 @@ in the image intensities to detect edges. The PB algorithm
 considers texture and color information along with intensity,
 making it a better performing algorithm.
 ## Sample input image
-<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/data/BSDS500/Images/10.jpg" width="500" height="500">
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/data/BSDS500/Images/10.jpg" width="300" height="300">
 
 ## Filter banks
 Filter banks are a set of filters, that are applied over an
@@ -35,7 +35,7 @@ similar texture property were clustered together using K-mean
 algorithm(K= 64). The output of K-mean clustering is a Texton
 map(τ )
 
-<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/Textron_map/TextonMap_10.jpg" width="500" height="500">      
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/Textron_map/TextonMap_10.jpg" width="300" height="300">      
 
 ## Brightness Maps    
 The image was clustered based on the brightness value for
@@ -43,7 +43,7 @@ each pixel. The images were first converted to gray scale and
 K-mean algorithm(K=16) was used to get brightness maps.    
 
 
-<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/Brightness_map/BrightnessMap_10.jpg" width="500" height="500">     
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/Brightness_map/BrightnessMap_10.jpg" width="300" height="300">     
 
 ## Color Maps
 The image consists of three color channals(RGB), describ-
@@ -51,27 +51,38 @@ ing the color property at each pixel. The images have been
 clustered using the RGB value using K-mean algorithm(K=16)
 to obtain color maps.   
 
-<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/Color_map/ColorMap_10.jpg" width="500" height="500">    
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/Color_map/ColorMap_10.jpg" width="300" height="300">    
 
 ## Texture, Brightness and Color Gradients   
 To obtain Tg,Bg,Cg, we need to compute differences of values across different shapes and sizes. This can be achieved very efficiently by the use of Half-disc masks.    
 
 ### Half disk masks
-<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/Filters/HDMasks_12.png" width="500" height="500">     
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/Filters/HDMasks_12.png" width="300" height="300">     
 
 ### Texture Gradient
-<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/T_g/tg_10.jpg" width="500" height="500">      
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/T_g/tg_10.jpg" width="300" height="300">      
 
 ### Brightness Gradient
-<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/B_g/bg_10.jpg" width="500" height="500">       
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/B_g/bg_10.jpg" width="300" height="300">       
 
 ### Color Gradient
-<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/C_g/cg_10.jpg" width="500" height="500">    
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/C_g/cg_10.jpg" width="300" height="300">    
 
 ## Sobel and Canny baseline
-## Pb-lite output
+The outputs from Sobel and Canny edge detector are
+combined using weighted average method.   
+### Sobel baseline    
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/data/BSDS500/SobelBaseline/10.png" width="300" height="300">     
 
-##
+### Canny baseline    
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/data/BSDS500/CannyBaseline/10.png" width="300" height="300">     
+
+## Pb-lite output
+In the final step, the features from baseline methods(Canny
+and Sobel operator) were combined with the gradients of τ ,
+β, ζ.
+<img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/pb_lite_output/10.png" width="300" height="300"> 
+
 
 Phase 1:
 the variable 'folder_name' holds the base path to the code folder.
