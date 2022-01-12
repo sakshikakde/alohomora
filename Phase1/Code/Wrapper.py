@@ -1,23 +1,20 @@
 #!/usr/bin/env python
 
 """
-CMSC733 Spring 2019: Classical and Deep Learning Approaches for
+CMSC733 Spring 2021: Classical and Deep Learning Approaches for
 Geometric Computer Vision
 Homework 0: Alohomora: Phase 1 Starter Code
 
 
 Author(s): 
-Nitin J. Sanket (nitin@terpmail.umd.edu)
-PhD Candidate in Computer Science,
-University of Maryland, College Park
-
-Chahat Deep Singh (chahat@terpmail.umd.edu) 
-PhD Student in Computer Science,
-University of Maryland, College Park
+Sakshi Kakde
+M.Eng. Robotics,University of Maryland, College Park
 """
 
 # Code starts here:
-
+import sys
+from pathlib import Path
+sys.path.append(str(Path( __file__ ).parent.joinpath('..')))
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
@@ -25,6 +22,7 @@ import math
 import imutils
 import os
 import sklearn.cluster
+import os
 
 def loadImages(folder_name, files):
 	print("Loading images from ", folder_name)
@@ -336,10 +334,10 @@ def main():
 	brightness_gradients = []
 	color_gradients = []
 
-	folder_name = "/home/sakshi/courses/CMSC733/sakshi_hw0/Phase1"
-	image_folder_name = folder_name + "/BSDS500/Images"
-	sobel_baseline_folder = folder_name + "/BSDS500/SobelBaseline"
-	canny_baseline_folder = folder_name + "/BSDS500/CannyBaseline"
+	folder_name = "./"
+	image_folder_name = folder_name + "data/BSDS500/Images"
+	sobel_baseline_folder = folder_name + "data/BSDS500/SobelBaseline"
+	canny_baseline_folder = folder_name + "data/BSDS500/CannyBaseline"
 	
 
 
@@ -350,25 +348,25 @@ def main():
 	use command "cv2.imwrite(...)"
 	"""
 	dog_filter_bank = DoGFilters(16, [2,3], 49)
-	printFilterbank(dog_filter_bank,folder_name + "/Code/Filters/DoG.png", cols = 8)
+	printFilterbank(dog_filter_bank, folder_name + "results/Filters/DoG.png", cols = 8)
 	"""
 	Generate Leung-Malik Filter Bank: (LM)
 	Display all the filters in this filter bank and save image as LM.png,
 	use command "cv2.imwrite(...)"
 	"""
 	LMS_filter_bank = LMFilter([1, np.sqrt(2), 2, 2*np.sqrt(2)], 6, 49)
-	printFilterbank(LMS_filter_bank,folder_name + "/Code/Filters/LMS.png", 6)
+	printFilterbank(LMS_filter_bank,folder_name + "results/Filters/LMS.png", 6)
 	LML_filter_bank = LMFilter([np.sqrt(2), 2, 2*np.sqrt(2), 4], 6, 49)
-	printFilterbank(LML_filter_bank, folder_name + "/Code/Filters/LML.png", 6)
+	printFilterbank(LML_filter_bank, folder_name + "results/Filters/LML.png", 6)
 	LM_filter_bank = LMS_filter_bank + LML_filter_bank
-	printFilterbank(LM_filter_bank, folder_name + "/Code/Filters/LM.png", 6)
+	printFilterbank(LM_filter_bank, folder_name + "results/Filters/LM.png", 6)
 	"""
 	Generate Gabor Filter Bank: (Gabor)
 	Display all the filters in this filter bank and save image as Gabor.png,
 	use command "cv2.imwrite(...)"
 	"""
 	gabor_filter_bank = gaborFilter([10,25], 6, [2,3,4], 49)
-	printFilterbank(gabor_filter_bank, folder_name + "/Code/Filters/Gabor.png",6)
+	printFilterbank(gabor_filter_bank, folder_name + "results/Filters/Gabor.png",6)
 
 	"""
 	Generate Half-disk masks
@@ -376,7 +374,7 @@ def main():
 	use command "cv2.imwrite(...)"
 	"""
 	half_disk_filter_bank = halfdiskFilters([2,5,10,20,30], 16)
-	printFilterbank(half_disk_filter_bank, folder_name + "/Code/Filters/HDMasks.png", 6)
+	printFilterbank(half_disk_filter_bank, folder_name + "results/Filters/HDMasks.png", 6)
 	print("generating texton maps..")
 	"""
 	Generate Texton Map
@@ -409,7 +407,7 @@ def main():
 			textron_maps.append(texton_image)
 			#plt.imshow(texton_image)
 			#plt.show()			
-			plt.imsave(folder_name + "/Code/Textron_map/TextonMap_"+ file_names[i], texton_image)     
+			plt.imsave(folder_name + "results/Textron_map/TextonMap_"+ file_names[i], texton_image)     
 
 	"""
 	Generate Texton Gradient (Tg)
@@ -425,7 +423,7 @@ def main():
 		#plt.imshow(T_g)
 		#plt.show()	
 		textron_gradients.append(T_g)
-		plt.imsave(folder_name + "/Code/T_g/tg_" + file_names[i], T_g)		
+		plt.imsave(folder_name + "results/T_g/tg_" + file_names[i], T_g)		
 		 
 
     
@@ -446,7 +444,7 @@ def main():
 			brightness_maps.append(brightness_image)
 			#plt.imshow(brightness_image)
 			#plt.show()
-			plt.imsave(folder_name + "/Code/Brightness_map/BrightnessMap_" + file_names[i], brightness_image)
+			plt.imsave(folder_name + "results/Brightness_map/BrightnessMap_" + file_names[i], brightness_image)
    			
 
 	"""
@@ -463,7 +461,7 @@ def main():
 		#plt.imshow(B_g)
 		#plt.show()
 		brightness_gradients.append(B_g)
-		plt.imsave(folder_name + "/Code/B_g/bg_" + file_names[i], B_g)
+		plt.imsave(folder_name + "results/B_g/bg_" + file_names[i], B_g)
 
 
 	"""
@@ -483,7 +481,7 @@ def main():
 			color_maps.append(color_image)
 			#plt.imshow(color_image)
 			#plt.show()			
-			plt.imsave(folder_name + "/Code/Color_map/ColorMap_"+ file_names[i], color_image) 
+			plt.imsave(folder_name + "results/Color_map/ColorMap_"+ file_names[i], color_image) 
 
 
 	"""
@@ -500,7 +498,7 @@ def main():
 		#plt.imshow(C_g)
 		#plt.show()
 		color_gradients.append(C_g)
-		plt.imsave(folder_name + "/Code/C_g/cg_" + file_names[i], C_g)
+		plt.imsave(folder_name + "results/C_g/cg_" + file_names[i], C_g)
 
 
 	"""
@@ -531,7 +529,7 @@ def main():
 			pb_edge = getEdges(textron_gradients[i], brightness_gradients[i], color_gradients[i], canny_baseline[i], sobel_baseline[i], [0.5,0.5])
 			plt.imshow(pb_edge, cmap = "gray")
 			plt.show()
-			plt.imsave("Phase1/Code/pb_lite_output/" + baseline_files[i], pb_edge, cmap = "gray")
+			plt.imsave("Phase1/results/pb_lite_output/" + baseline_files[i], pb_edge, cmap = "gray")
 
 if __name__ == '__main__':
     main()
