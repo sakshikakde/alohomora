@@ -81,7 +81,9 @@ combined using weighted average method.
 ## Pb-lite output
 In the final step, the features from baseline methods(Canny
 and Sobel operator) were combined with the gradients of τ ,
-β, ζ.
+β, ζ.    
+
+
 <img src="https://github.com/sakshikakde/alohomora/blob/main/Phase1/results/pb_lite_output/10.png" width="300" height="300"> 
 
 # How to run the code
