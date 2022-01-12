@@ -103,12 +103,10 @@ and Sobel operator) were combined with the gradients of τ ,
 
 # How to run the code
 - Change the location to      
-```
-{root_directory}/Phase1 ```  
+```{root_directory}/Phase1 ```  
 
 - Run the following command       
-```
-python3 Code/Wrapper.py ```
+```python3 Code/Wrapper.py ```
 <!-- 
 Phase 2:
 1)train.py
