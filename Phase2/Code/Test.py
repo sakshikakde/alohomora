@@ -7,9 +7,9 @@ Homework 0: Alohomora: Phase 2 Starter Code
 
 
 Author(s):
-Nitin J. Sanket (nitinsan@terpmail.umd.edu)
-PhD Candidate in Computer Science,
-University of Maryland, College Park
+Author(s): 
+Sakshi Kakde
+M.Eng. Robotics,University of Maryland, College Park
 """
 
 
@@ -239,10 +239,10 @@ def main():
 
     # Parse Command Line arguments
     Parser = argparse.ArgumentParser()
-    Parser.add_argument('--ModelPath', dest='ModelPath', default='/home/sakshi/courses/CMSC733/Checkpoints/neural_network', help='Path to load latest model from, Default:ModelPath')
-    Parser.add_argument('--BasePath', dest='BasePath', default='/home/sakshi/courses/CMSC733/sakshi_hw0/Phase2/CIFAR10/Test/', help='Path to load images from, Default:BasePath')
-    Parser.add_argument('--TxtPath', dest='TxtPath', default='/home/sakshi/courses/CMSC733/sakshi_hw0/Phase2/Code/TxtFiles/', help='Path of labels file, Default:./TxtFiles/LabelsTest.txt')
-    Parser.add_argument('--Plotpath', default='/home/sakshi/courses/CMSC733/sakshi_hw0/Phase2/Code/plots/neural_network', help='Path to save plots')
+    Parser.add_argument('--ModelPath', dest='ModelPath', default='./Checkpoints/neural_network', help='Path to load latest model from, Default:ModelPath')
+    Parser.add_argument('--BasePath', dest='BasePath', default='./Phase2/CIFAR10/Test/', help='Path to load images from, Default:BasePath')
+    Parser.add_argument('--TxtPath', dest='TxtPath', default='./Phase2/Code/TxtFiles/', help='Path of labels file, Default:./TxtFiles/LabelsTest.txt')
+    Parser.add_argument('--Plotpath', default='./Phase2/Code/plots/neural_network', help='Path to save plots')
     Parser.add_argument('--NumEpochs', type=int, default=1, help='Number of Epochs to Train for, Default:50')
     Args = Parser.parse_args()
     ModelPath = Args.ModelPath
@@ -251,8 +251,6 @@ def main():
     NumEpochs = Args.NumEpochs
     LabelsPath = TxtPath + "LabelsTest.txt"
     PlotPath = Args.Plotpath
-
-    #PlotPath = "/home/sakshi/courses/CMSC733/sakshi_hw0/Phase2/code/plots/densenet"
 
     # Setup all needed parameters including file reading
     ImageSize, DataPath = SetupAll(BasePath)

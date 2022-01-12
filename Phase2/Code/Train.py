@@ -7,9 +7,9 @@ Homework 0: Alohomora: Phase 2 Starter Code
 
 
 Author(s):
-Nitin J. Sanket (nitinsan@terpmail.umd.edu)
-PhD Candidate in Computer Science,
-University of Maryland, College Park
+Author(s): 
+Sakshi Kakde
+M.Eng. Robotics,University of Maryland, College Park
 """
 
 # Dependencies:
@@ -228,9 +228,6 @@ def TrainOperation(ImgPH, LabelPH, DirNamesTrain, TrainLabels, NumTrainSamples, 
             Saver.save(sess, save_path=SaveName)
             print('\n' + SaveName + ' Model Saved...')
 
-        #plots
-        #np.savetxt("/home/sakshi/courses/CMSC733/sakshi_hw0/Phase2/plots/training_loss.csv", np.array(loss_epochs), delimiter=",")
-       # np.savetxt("/home/sakshi/courses/CMSC733/sakshi_hw0/Phase2/plots/training_accuracy.csv", np.array(accuracy_epochs), delimiter=",")
         plt.subplots(1, 2, figsize=(15,15))
         
         plt.subplot(1, 2, 1) #loss
@@ -262,14 +259,14 @@ def main():
     
     # Parse Command Line arguments
     Parser = argparse.ArgumentParser()
-    Parser.add_argument('--BasePath', default='/home/sakshi/courses/CMSC733/sakshi_hw0/Phase2/CIFAR10', help='Base path of images, Default:/media/nitin/Research/Homing/SpectralCompression/CIFAR10')
+    Parser.add_argument('--BasePath', default='./Phase2/CIFAR10', help='Base path of images, Default:/media/nitin/Research/Homing/SpectralCompression/CIFAR10')
     Parser.add_argument('--CheckPointPath', default='../Checkpoints/densenet/', help='Path to save Checkpoints, Default: ../Checkpoints/')
     Parser.add_argument('--NumEpochs', type=int, default=1, help='Number of Epochs to Train for, Default:50')
     Parser.add_argument('--DivTrain', type=int, default=1, help='Factor to reduce Train data by per epoch, Default:1')
     Parser.add_argument('--MiniBatchSize', type=int, default=50, help='Size of the MiniBatch to use, Default:1')
     Parser.add_argument('--LoadCheckPoint', type=int, default=0, help='Load Model from latest Checkpoint from CheckPointsPath?, Default:0')
     Parser.add_argument('--LogsPath', default='Logs/', help='Path to save Logs for Tensorboard, Default=Logs/')
-    Parser.add_argument('--Plotpath', default='/home/sakshi/courses/CMSC733/sakshi_hw0/Phase2/Code/plots/densenet/', help='Path to save plots')
+    Parser.add_argument('--Plotpath', default='./Phase2/Code/plots/densenet/', help='Path to save plots')
     Args = Parser.parse_args()
     NumEpochs = Args.NumEpochs
     BasePath = Args.BasePath

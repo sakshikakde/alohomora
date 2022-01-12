@@ -4,10 +4,9 @@ Geometric Computer Vision
 Homework 0: Alohomora: Phase 2 Starter Code
 
 
-Author(s):
-Nitin J. Sanket (nitinsan@terpmail.umd.edu)
-PhD Candidate in Computer Science,
-University of Maryland, College Park
+Author(s): 
+Sakshi Kakde
+M.Eng. Robotics,University of Maryland, College Park
 """
 
 import tensorflow as tf
